@@ -9,14 +9,17 @@ let package = Package(
     products: [
         .library(name: "ValueAnimator", targets: ["ValueAnimator"]),
     ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-    ],
     targets: [
         .target(
             name: "ValueAnimator",
-            dependencies: []),
-        .testTarget(name: "ValueAnimator-iOSTests",
-            dependencies: ["ValueAnimator"], path: "ValueAnimatorTests"),
+            path: "Sources",
+            exclude: ["Info.plist"]
+        ),
+        .testTarget(
+            name: "ValueAnimator-iOSTests",
+            dependencies: ["ValueAnimator"],
+            path: "ValueAnimatorTests",
+            exclude: ["Info.plist"]
+        ),
     ]
 )
